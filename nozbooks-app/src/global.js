@@ -9,9 +9,8 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body, #root{
     height: 100vh;
-    width: 100vw;
     font-family: 'Heebo', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
   }
   ul{
     list-style: none;

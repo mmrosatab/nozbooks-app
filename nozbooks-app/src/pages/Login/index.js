@@ -1,40 +1,61 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../../service/api";
 import { Container, LoginContainer } from "./styles";
 import { TextField, Box, Button, Tooltip } from "@mui/material";
 import logo from "../../assets/logos/white_noz.svg";
 
+function initialState() {
+  return { email: "", password: "" };
+}
+
 function Login() {
-  const [showToolTip, setShowToolTip] = useState(true);
+  const [values, setValues] = useState(initialState);
+  const [showToolTip, setShowToolTip] = useState(false);
+  const [userMessage, setUserMessage] = useState("");
 
-  function validate(email, password) {
-    const errors = [];
-
-    if (email.length === 0) {
-      errors.push("Email can't be empty");
+  function validate() {
+    if (values.email.length === 0 || values.password.length === 0) {
+      setUserMessage("E-mail e senha não podem estar vazios");
+      return false;
     }
-
-    if (password.length === 0) {
-      errors.push("Password can't be empty");
-    }
-    return errors;
+    return true;
   }
 
-  function handleSubmit(event) {
+  function handleChange(event) {
+    const { value, name } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  }
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
 
-    const email = data.get("email");
-    const password = data.get("password");
-    const errors = validate(email, password);
-
-    if (errors) {
-      // show erros user
+    if (!validate()) {
       setShowToolTip(true);
+      setValues(initialState);
+      return;
     }
 
-    // send request here
+    try {
+      const response = await api.post("auth/sign-in", values);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
 
-    // check wrong response and show message to user
+    // const value = await auth.login(username, password);
+    // if (value) {
+    //   navigate("/home");
+    //   return;
+    // }
+
+    // setShowToolTip(true);
+    //   api.defaults.headers.Authorization = `Bearer ${response.data}`;
+    // clean inputfields
+    setValues(initialState);
   }
 
   return (
@@ -60,10 +81,12 @@ function Login() {
               ...inputStyle,
             }}
             InputLabelProps={{ ...inputLabelStyle }}
+            onChange={handleChange}
+            value={values.email}
           />
           <Tooltip
             title="Email e/ou senha incorretos."
-            placement="bottom-start"
+            placement="bottom-end"
             arrow
             open={showToolTip ? true : false}
             componentsProps={{ ...tooltipStyle }}
@@ -86,6 +109,8 @@ function Login() {
                 ),
               }}
               InputLabelProps={{ ...inputLabelStyle }}
+              onChange={handleChange}
+              value={values.password}
             ></TextField>
           </Tooltip>
         </Box>

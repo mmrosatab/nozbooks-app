@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, LoginContainer } from "./styles";
-import { TextField, Box, Button } from "@mui/material";
-import logo from "../../assets/logos/NOZ.svg";
+import { TextField, Box, Button, Tooltip } from "@mui/material";
+import logo from "../../assets/logos/white_noz.svg";
 
 function Login() {
-  const handleSubmit = (event) => {
+  const [showToolTip, setShowToolTip] = useState(true);
+
+  function validate(email, password) {
+    const errors = [];
+
+    if (email.length === 0) {
+      errors.push("Email can't be empty");
+    }
+
+    if (password.length === 0) {
+      errors.push("Password can't be empty");
+    }
+    return errors;
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+
+    const email = data.get("email");
+    const password = data.get("password");
+    const errors = validate(email, password);
+
+    if (errors) {
+      // show erros user
+      setShowToolTip(true);
+    }
+
+    // send request here
+
+    // check wrong response and show message to user
+  }
 
   return (
     <Container>
@@ -35,34 +59,42 @@ function Login() {
             InputProps={{
               ...inputStyle,
             }}
-            InputLabelProps={{ style: { color: "#FFFFFF", opacity: 0.5 } }}
+            InputLabelProps={{ ...inputLabelStyle }}
           />
-
-          <TextField
-            id="password-input"
-            label="Senha"
-            type="password"
-            name="password"
-            autoComplete="off"
-            variant="filled"
-            margin="dense"
-            fullWidth
-            InputProps={{
-              ...inputStyle,
-              endAdornment: (
-                <Button type="submit" variant="contained" sx={buttonStyle}>
-                  Entrar
-                </Button>
-              ),
-            }}
-            InputLabelProps={{ style: { color: "#FFFFFF", opacity: 0.5 } }}
-          ></TextField>
+          <Tooltip
+            title="Email e/ou senha incorretos."
+            placement="bottom-start"
+            arrow
+            open={showToolTip ? true : false}
+            componentsProps={{ ...tooltipStyle }}
+          >
+            <TextField
+              id="password-input"
+              label="Senha"
+              type="password"
+              name="password"
+              autoComplete="off"
+              variant="filled"
+              margin="dense"
+              fullWidth
+              InputProps={{
+                ...inputStyle,
+                endAdornment: (
+                  <Button type="submit" variant="contained" sx={buttonStyle}>
+                    Entrar
+                  </Button>
+                ),
+              }}
+              InputLabelProps={{ ...inputLabelStyle }}
+            ></TextField>
+          </Tooltip>
         </Box>
       </LoginContainer>
     </Container>
   );
 }
 
+const inputLabelStyle = { style: { color: "#FFFFFF", opacity: 0.5 } };
 const inputStyle = {
   style: {
     color: "#FFFFFF",
@@ -80,6 +112,23 @@ const buttonStyle = {
     textTransform: "capitalize",
     width: "24%",
     fontWeight: "bold",
+  },
+};
+
+const tooltipStyle = {
+  tooltip: {
+    sx: {
+      backgroundColor: "rgba(255, 255, 255, 0.4)",
+      "& .MuiTooltip-arrow": {
+        color: "rgba(255, 255, 255, 0.4)",
+      },
+      height: "50px",
+      fontWeight: "bold",
+      fontSize: "12px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
 };
 

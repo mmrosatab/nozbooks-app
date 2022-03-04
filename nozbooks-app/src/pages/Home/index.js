@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
 import Button from "@mui/material/Button";
 import logo from "../../assets/logos/black_noz.svg";
-import logout from "../../assets/images/circle_logout.svg";
+import iconLogout from "../../assets/images/circle_logout.svg";
 
 function Home() {
   const auth = useAuth();
@@ -15,7 +15,6 @@ function Home() {
   function handleClickLogout() {
     auth.logout();
     navigate("/");
-    console.log("entrei");
   }
 
   return (
@@ -32,7 +31,7 @@ function Home() {
             <div>{`Olá, ${username}`}</div>
             <div>
               <Button type="submit" onClick={handleClickLogout}>
-                <img src={logout} alt="logo" />
+                <img src={iconLogout} alt="logo" />
               </Button>
             </div>
           </div>

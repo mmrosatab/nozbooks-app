@@ -38,13 +38,11 @@ function Login() {
     if (!validate()) {
       setShowToolTip(true);
       setValues(initialState);
-      setShowToolTip(false);
       return;
     }
 
     const value = await auth.login(values);
-    if (value) {
-      console.log(value);
+    if (value !== null) {
       navigate("/home");
       return;
     }
@@ -53,7 +51,7 @@ function Login() {
     setShowToolTip(true);
     // make debounce here
     setValues(initialState);
-    setShowToolTip(false);
+    // setShowToolTip(false);
   }
 
   return (

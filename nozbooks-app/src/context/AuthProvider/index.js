@@ -11,58 +11,56 @@ import {
 } from "../LocalStoreProvider";
 
 import { signInRequest, refreshTokenRequest } from "../../service/request";
-
 export const AuthContext = createContext();
 
+const initialAuthorization = getAuthorizationLocalStorage();
+const initialRefreshTokenLocalStorage = getRefreshTokenLocalStorage();
+
 export function AuthProvider({ children }) {
-  const [authorization, setAuthorization] = useState(
-    getAuthorizationLocalStorage()
-  );
+  const [authorization, setAuthorization] = useState(initialAuthorization);
   const [refreshToken, setRefreshToken] = useState(
-    getRefreshTokenLocalStorage()
+    initialRefreshTokenLocalStorage
   );
 
   // recovery data from navigate in case of user close tab without do logout
   useEffect(() => {
-    const actualAuthorization = getAuthorizationLocalStorage();
-    const actualRefreshToken = getRefreshTokenLocalStorage();
-
-    if (actualAuthorization && actualRefreshToken) {
+    let actualAuthorization = getAuthorizationLocalStorage();
+    let actualRefreshToken = getRefreshTokenLocalStorage();
+    if (actualAuthorization !== null && actualRefreshToken !== null) {
       setAuthorization(actualAuthorization);
       setRefreshToken(actualRefreshToken);
-      setAuthorizationLocalStorage(authorization);
-      setRefreshTokenLocalStorage(refreshToken);
-      return true;
     }
-  }, [authorization, refreshToken]);
+  }, []);
 
   async function login(values) {
     const response = await signInRequest(values);
-    if (response) {
-      // const status = response.status;
-      const data = response.data;
-      // const headers = response.headers;
-      const authorization = response.headers.authorization;
-      const refreshToken = response.headers["refresh-token"];
 
+    if (response !== null) {
+      const { data, headers } = response;
+      const { name } = data;
+      const _authorization = headers.authorization;
+      const _refreshToken = headers["refresh-token"];
       const newResponse = await refreshTokenRequest(
-        refreshToken,
-        authorization
+        _refreshToken,
+        _authorization
       );
 
-      if (newResponse) {
-        let newAuthorization = newResponse.headers.authorization;
-        let newRefreshToken = newResponse.headers["refresh-token"];
-
+      if (newResponse !== null) {
+        const newAuthorization = newResponse.headers.authorization;
+        const newRefreshToken = newResponse.headers["refresh-token"];
+        setAuthorization(newAuthorization);
+        setRefreshToken(newRefreshToken);
         setAuthorizationLocalStorage(newAuthorization);
         setRefreshTokenLocalStorage(newRefreshToken);
-        setUsernameLocalStorage(data.name);
+        setUsernameLocalStorage(name);
         return true;
       }
     }
   }
 
   function logout() {
+    setAuthorization(null);
+    setRefreshToken(null);
     removeAuthorizationLocalStorage();
     removeRefreshTokenLocalStorage();
     removeUsernameLocalStorage();

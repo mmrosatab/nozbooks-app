@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { Container, LoginContainer } from "./styles";
-import { TextField, Box, Button, Tooltip } from "@mui/material";
+import {
+  TextField,
+  Box,
+  Button,
+  Tooltip,
+  ClickAwayListener,
+} from "@mui/material";
 import logo from "../../assets/logos/white_noz.svg";
 
 function initialState() {
@@ -15,6 +21,10 @@ function Login() {
   const [values, setValues] = useState(initialState);
   const [showToolTip, setShowToolTip] = useState(false);
   const [userMessage, setUserMessage] = useState("");
+
+  const handleClickAway = () => {
+    setShowToolTip(false);
+  };
 
   function validate() {
     if (values.email.length === 0 || values.password.length === 0) {
@@ -49,9 +59,7 @@ function Login() {
 
     setUserMessage("Email e/ou senha incorretos.");
     setShowToolTip(true);
-    // make debounce here
     setValues(initialState);
-    // setShowToolTip(false);
   }
 
   return (
@@ -80,35 +88,37 @@ function Login() {
             onChange={handleChange}
             value={values.email}
           />
-          <Tooltip
-            title={userMessage}
-            placement="bottom-start"
-            arrow
-            open={showToolTip ? true : false}
-            componentsProps={{ ...tooltipStyle }}
-          >
-            <TextField
-              id="password-input"
-              label="Senha"
-              type="password"
-              name="password"
-              autoComplete="off"
-              variant="filled"
-              margin="dense"
-              fullWidth
-              InputProps={{
-                ...inputStyle,
-                endAdornment: (
-                  <Button type="submit" variant="contained" sx={buttonStyle}>
-                    Entrar
-                  </Button>
-                ),
-              }}
-              InputLabelProps={{ ...inputLabelStyle }}
-              onChange={handleChange}
-              value={values.password}
-            ></TextField>
-          </Tooltip>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <Tooltip
+              title={userMessage}
+              placement="bottom-start"
+              arrow
+              open={showToolTip ? true : false}
+              componentsProps={{ ...tooltipStyle }}
+            >
+              <TextField
+                id="password-input"
+                label="Senha"
+                type="password"
+                name="password"
+                autoComplete="off"
+                variant="filled"
+                margin="dense"
+                fullWidth
+                InputProps={{
+                  ...inputStyle,
+                  endAdornment: (
+                    <Button type="submit" variant="contained" sx={buttonStyle}>
+                      Entrar
+                    </Button>
+                  ),
+                }}
+                InputLabelProps={{ ...inputLabelStyle }}
+                onChange={handleChange}
+                value={values.password}
+              ></TextField>
+            </Tooltip>
+          </ClickAwayListener>
         </Box>
       </LoginContainer>
     </Container>

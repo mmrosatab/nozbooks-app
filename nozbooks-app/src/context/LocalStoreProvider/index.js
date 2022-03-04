@@ -10,10 +10,6 @@ export function getAuthorizationLocalStorage() {
   return localStorage.getItem("Authorization");
 }
 
-// export const userIsAuthenticated =
-//   getAuthorizationLocalStorage() !== null &&
-//   getRefreshTokenLocalStorage() !== null;
-
 export function setRefreshTokenLocalStorage(refreshToken) {
   localStorage.setItem("refreshToken", refreshToken);
 }

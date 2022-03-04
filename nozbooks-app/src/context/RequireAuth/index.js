@@ -3,10 +3,19 @@ import { useAuth } from "../../context/AuthContext";
 
 export function RequireAuth({ children }) {
   let auth = useAuth();
-  return auth.token ? children : <Navigate to="/" />;
+  console.log(auth);
+  return auth.authorization && auth.refreshToken ? (
+    children
+  ) : (
+    <Navigate to="/" />
+  );
 }
 
 export function AlreadyAuth({ children }) {
   let auth = useAuth();
-  return auth.token ? <Navigate to="/home" /> : children;
+  return auth.authorization && auth.refreshToken ? (
+    <Navigate to="/home" />
+  ) : (
+    children
+  );
 }

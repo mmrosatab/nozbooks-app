@@ -8,14 +8,32 @@ import GlobalStyle from "./global";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<Login />} />
-        <Route path="/home" exact element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <AlreadyAuth>
+                <Login />
+              </AlreadyAuth>
+            }
+          />
+          <Route
+            path="/home"
+            exact
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
       <GlobalStyle />
-    </BrowserRouter>
+    </AuthProvider>
   );
 }
 

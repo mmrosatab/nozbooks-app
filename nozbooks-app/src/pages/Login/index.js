@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../service/api";
+import { useAuth } from "../../context/AuthContext";
 import { Container, LoginContainer } from "./styles";
 import { TextField, Box, Button, Tooltip } from "@mui/material";
 import logo from "../../assets/logos/white_noz.svg";
@@ -10,6 +10,8 @@ function initialState() {
 }
 
 function Login() {
+  const auth = useAuth();
+  const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
   const [showToolTip, setShowToolTip] = useState(false);
   const [userMessage, setUserMessage] = useState("");
@@ -36,26 +38,22 @@ function Login() {
     if (!validate()) {
       setShowToolTip(true);
       setValues(initialState);
+      setShowToolTip(false);
       return;
     }
 
-    try {
-      const response = await api.post("auth/sign-in", values);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+    const value = await auth.login(values);
+    if (value) {
+      console.log(value);
+      navigate("/home");
+      return;
     }
 
-    // const value = await auth.login(username, password);
-    // if (value) {
-    //   navigate("/home");
-    //   return;
-    // }
-
-    // setShowToolTip(true);
-    //   api.defaults.headers.Authorization = `Bearer ${response.data}`;
-    // clean inputfields
+    setUserMessage("Email e/ou senha incorretos.");
+    setShowToolTip(true);
+    // make debounce here
     setValues(initialState);
+    setShowToolTip(false);
   }
 
   return (
@@ -85,8 +83,8 @@ function Login() {
             value={values.email}
           />
           <Tooltip
-            title="Email e/ou senha incorretos."
-            placement="bottom-end"
+            title={userMessage}
+            placement="bottom-start"
             arrow
             open={showToolTip ? true : false}
             componentsProps={{ ...tooltipStyle }}

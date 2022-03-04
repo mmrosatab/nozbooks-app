@@ -15,7 +15,6 @@ const HomeContainer = styled.div`
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  background-color: red;
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
@@ -37,9 +36,25 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   vertical-align: center;
-  background-color: green;
   width: 100%;
   height: 8%;
+
+  #title-header-logo {
+    display: flex;
+    align-items: center;
+    width: 14%;
+    height: 100%;
+  }
+
+  #books-title {
+    margin-left: 8%;
+    font-size: 22px;
+  }
+
+  #title-header-user {
+    display: flex;
+    align-items: center;
+  }
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
@@ -49,6 +64,10 @@ const Header = styled.header`
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
     padding: 2% 0% 2% 0%;
+
+    #title-welcome {
+      display: none;
+    }
   }
 `;
 
@@ -57,14 +76,36 @@ const Footer = styled.footer`
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
+    #itens-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
+    #itens-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #itens-footer :nth-child(1) {
+      order: 2;
+    }
+    #itens-footer :nth-child(2) {
+      order: 1;
+    }
+    #itens-footer :nth-child(3) {
+      order: 3;
+    }
   }
 `;
 
 const Main = styled.main`
+  height: 100%;
+
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
   }

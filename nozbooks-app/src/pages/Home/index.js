@@ -17,18 +17,24 @@ function Home() {
     navigate("/");
   }
 
+  function handlePreviousPage() {}
+
+  function handleNextPage() {}
+
   return (
     <Container>
       <HomeContainer>
         <Header>
-          <div id="title-home-div">
-            <div>
+          <div id="title-header-logo">
+            <div id="img-logo-noz">
               <img src={logo} alt="logo" />
             </div>
-            <div>Books</div>
+            <div id="books-title">Books</div>
           </div>
-          <div>
-            <div>{`Olá, ${username}`}</div>
+          <div id="title-header-user">
+            <div id="title-welcome">
+              Bem vinda, <span>{username}</span>
+            </div>
             <div>
               <Button type="submit" onClick={handleClickLogout}>
                 <img src={iconLogout} alt="logo" />
@@ -37,7 +43,21 @@ function Home() {
           </div>
         </Header>
         <Main />
-        <Footer />
+        <Footer>
+          <div id="itens-footer">
+            <div>Página 1 de 100</div>
+            <div>
+              <Button type="submit" onClick={handlePreviousPage}>
+                <img alt="before" />
+              </Button>
+            </div>
+            <div>
+              <Button type="submit" onClick={handleNextPage}>
+                <img alt="after" />
+              </Button>
+            </div>
+          </div>
+        </Footer>
       </HomeContainer>
     </Container>
   );

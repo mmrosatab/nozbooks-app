@@ -56,6 +56,7 @@ export function AuthProvider({ children }) {
         return true;
       }
     }
+    return null;
   }
 
   function logout() {

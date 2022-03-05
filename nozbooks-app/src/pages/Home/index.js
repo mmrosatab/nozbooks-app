@@ -11,15 +11,11 @@ import {
   Grid,
   Card,
   CardContent,
-  CardActions,
-  Typography,
-  Modal,
   CardActionArea,
 } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import logo from "../../assets/logos/black_noz.svg";
 import iconLogout from "../../assets/images/logout_circle.png";
-import iconClose from "../../assets/images/close_circle.png";
 import iconBefore from "../../assets/images/before_circle.png";
 import iconAfter from "../../assets/images/after_circle.png";
 
@@ -33,7 +29,6 @@ function Home() {
   const [currentTable, setCurrentTable] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [openModal, setOpenModal] = useState(false);
   const sxGrid = useMediaQuery("(min-width:768px)") ? 3 : 12;
 
   useEffect(() => {
@@ -81,18 +76,6 @@ function Home() {
     }
   }
 
-  function handleClickCard() {
-    setOpenModal(true);
-  }
-
-  function handleOpenModal() {
-    // console.log(id);
-    setOpenModal(true);
-  }
-  function handleCloseModal() {
-    setOpenModal(false);
-  }
-
   return (
     <Container>
       <HomeContainer>
@@ -121,7 +104,7 @@ function Home() {
                 return (
                   <Grid key={index} item xs={sxGrid}>
                     <Card key={book.id}>
-                      <CardActionArea component="a" onClick={handleClickCard}>
+                      <CardActionArea component="a">
                         <CardContent>
                           <Book book={book} />
                         </CardContent>
@@ -132,7 +115,6 @@ function Home() {
               })}
             </Grid>
           </Box>
-          <Modal open={openModal} onClose={handleCloseModal}></Modal>
         </Main>
         <Footer>
           <div id="itens-footer">

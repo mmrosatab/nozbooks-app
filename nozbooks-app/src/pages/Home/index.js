@@ -4,6 +4,7 @@ import { booksRequest } from "../../service/request";
 import { Container, HomeContainer, Header, Main, Footer } from "./styles";
 import { useAuth } from "../../context/AuthContext";
 import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
+import Book from "../../components/Book";
 import {
   Button,
   Box,
@@ -121,52 +122,7 @@ function Home() {
                         onClick={() => console.log("estou clicando")}
                       >
                         <CardContent>
-                          <Typography
-                            sx={{ fontSize: 10 }}
-                            color="text.secondary"
-                          >
-                            {book.title}
-                          </Typography>
-
-                          {book.authors.length > 1 ? (
-                            book.authors.map((author, index) => {
-                              return (
-                                <Typography
-                                  key={index}
-                                  sx={{ fontSize: 8 }}
-                                  color="text.secondary"
-                                >
-                                  {author}
-                                </Typography>
-                              );
-                            })
-                          ) : (
-                            <Typography
-                              sx={{ fontSize: 8 }}
-                              color="text.secondary"
-                            >
-                              {book.authors[0]}
-                            </Typography>
-                          )}
-
-                          <Typography
-                            sx={{ fontSize: 10 }}
-                            color="text.secondary"
-                          >
-                            {`${book.pageCount} páginas`}
-                          </Typography>
-                          <Typography
-                            sx={{ fontSize: 10 }}
-                            color="text.secondary"
-                          >
-                            {book.publisher}
-                          </Typography>
-                          <Typography
-                            sx={{ fontSize: 10 }}
-                            color="text.secondary"
-                          >
-                            {book.published}
-                          </Typography>
+                          <Book book={book} />
                         </CardContent>
                       </CardActionArea>
                       {/* <CardActions>

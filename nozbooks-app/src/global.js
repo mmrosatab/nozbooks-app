@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   ul{
     list-style: none;
   }
+  text-overflow: ellipsis;
 `;
 
 export default GlobalStyle;

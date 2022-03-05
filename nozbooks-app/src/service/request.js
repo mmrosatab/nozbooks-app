@@ -37,8 +37,6 @@ export async function booksRequest() {
   const refreshToken = getRefreshTokenLocalStorage();
   const authorization = getAuthorizationLocalStorage();
 
-  console.log(refreshToken);
-  console.log(authorization);
   try {
     const request = await api.get(URL_BOOKS, {
       refreshToken: refreshToken,

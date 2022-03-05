@@ -80,6 +80,7 @@ const Footer = styled.footer`
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      margin-right: 6%;
     }
   }
 
@@ -106,6 +107,7 @@ const Footer = styled.footer`
 const Main = styled.main`
   height: 100%;
   padding: 4%;
+  background-color: red;
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
   }

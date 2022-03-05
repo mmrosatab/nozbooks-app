@@ -1,8 +1,8 @@
 import React from "react";
 import Container from "./styles.js";
 
-function Card() {
+function Book({ book }) {
   return <Container />;
 }
 
-export default Card;
+export default Book;

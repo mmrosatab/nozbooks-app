@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { booksRequest } from "../../service/request";
 import { Container, HomeContainer, Header, Main, Footer } from "./styles";
 import { useAuth } from "../../context/AuthContext";
 import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
-import Button from "@mui/material/Button";
+import {
+  Button,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 import logo from "../../assets/logos/black_noz.svg";
 import iconLogout from "../../assets/images/circle_logout.svg";
 
@@ -11,10 +19,21 @@ function Home() {
   const auth = useAuth();
   const username = getUsernameLocalStorage();
   const navigate = useNavigate();
+  const [books, setBooks] = useState(null);
+
+  useEffect(() => {
+    getBooks();
+  }, []);
 
   function handleClickLogout() {
     auth.logout();
     navigate("/");
+  }
+
+  async function getBooks() {
+    const response = await booksRequest();
+    const data = response.data;
+    setBooks(data);
   }
 
   function handlePreviousPage() {}
@@ -42,7 +61,50 @@ function Home() {
             </div>
           </div>
         </Header>
-        <Main />
+        <Main>
+          <Box sx={{ flexGrow: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=4</Card>
+              </Grid>
+              <Grid item xs={12}>
+                <Card>xs=8</Card>
+              </Grid>
+            </Grid>
+          </Box>
+        </Main>
         <Footer>
           <div id="itens-footer">
             <div>Página 1 de 100</div>

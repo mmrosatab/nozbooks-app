@@ -1,8 +1,11 @@
 import api from "./api";
+import {
+  getRefreshTokenLocalStorage,
+  getAuthorizationLocalStorage,
+} from "../context/LocalStoreProvider";
 const URL_SIGN_IN = "auth/sign-in";
 const URL_REFRESH_TOKEN = "auth/refresh-token";
-// const URL_BOOKS = "books";
-// const URL_BOOKS_ID = "books/";
+const URL_BOOKS = "books";
 
 export async function signInRequest(values) {
   try {
@@ -21,6 +24,46 @@ export async function refreshTokenRequest(refreshToken, authorization) {
       {
         headers: {
           Authorization: `Bearer ${authorization}`,
+        },
+      }
+    );
+    return request;
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function booksRequest() {
+  const refreshToken = getRefreshTokenLocalStorage();
+  const authorization = getAuthorizationLocalStorage();
+
+  console.log(refreshToken);
+  console.log(authorization);
+  try {
+    const request = await api.get(URL_BOOKS, {
+      refreshToken: refreshToken,
+      params: { page: "1", amount: "28", category: "biographies" },
+      headers: {
+        Authorization: authorization,
+      },
+    });
+    return request;
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function booksByIdRequest(id) {
+  const refreshToken = getRefreshTokenLocalStorage();
+  const authorization = getAuthorizationLocalStorage();
+
+  try {
+    const request = await api.get(
+      `books/${id}`,
+      { refreshToken },
+      {
+        headers: {
+          Authorization: authorization,
         },
       }
     );

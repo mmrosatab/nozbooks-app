@@ -105,13 +105,14 @@ const Footer = styled.footer`
 
 const Main = styled.main`
   height: 100%;
-
+  padding: 4%;
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
   }
 
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
+    overflow-y: auto;
   }
 `;
 

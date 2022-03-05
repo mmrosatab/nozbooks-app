@@ -14,13 +14,11 @@ import { signInRequest, refreshTokenRequest } from "../../service/request";
 export const AuthContext = createContext();
 
 const initialAuthorization = getAuthorizationLocalStorage();
-const initialRefreshTokenLocalStorage = getRefreshTokenLocalStorage();
+const initialRefreshToken = getRefreshTokenLocalStorage();
 
 export function AuthProvider({ children }) {
   const [authorization, setAuthorization] = useState(initialAuthorization);
-  const [refreshToken, setRefreshToken] = useState(
-    initialRefreshTokenLocalStorage
-  );
+  const [refreshToken, setRefreshToken] = useState(initialRefreshToken);
 
   // recovery data from navigate in case of user close tab without do logout
   useEffect(() => {
@@ -48,10 +46,10 @@ export function AuthProvider({ children }) {
       if (newResponse !== null) {
         const newAuthorization = newResponse.headers.authorization;
         const newRefreshToken = newResponse.headers["refresh-token"];
-        setAuthorization(newAuthorization);
-        setRefreshToken(newRefreshToken);
         setAuthorizationLocalStorage(newAuthorization);
         setRefreshTokenLocalStorage(newRefreshToken);
+        setAuthorization(`Bearer ${newAuthorization}`);
+        setRefreshToken(newRefreshToken);
         setUsernameLocalStorage(name);
         return true;
       }

@@ -81,6 +81,10 @@ function Home() {
     }
   }
 
+  function handleClickCard() {
+    setOpenModal(true);
+  }
+
   function handleOpenModal() {
     // console.log(id);
     setOpenModal(true);
@@ -117,26 +121,18 @@ function Home() {
                 return (
                   <Grid key={index} item xs={sxGrid}>
                     <Card key={book.id}>
-                      <CardActionArea
-                        component="a"
-                        onClick={() => console.log("estou clicando")}
-                      >
+                      <CardActionArea component="a" onClick={handleClickCard}>
                         <CardContent>
                           <Book book={book} />
                         </CardContent>
                       </CardActionArea>
-                      {/* <CardActions>
-                        <Modal
-                          open={openModal}
-                          onClose={handleCloseModal}
-                        ></Modal>
-                      </CardActions> */}
                     </Card>
                   </Grid>
                 );
               })}
             </Grid>
           </Box>
+          <Modal open={openModal} onClose={handleCloseModal}></Modal>
         </Main>
         <Footer>
           <div id="itens-footer">

@@ -31,7 +31,7 @@ function Book({ book }) {
                     whiteSpace="nowrap"
                     textOverflow="ellipses"
                     sx={{ fontSize: 8 }}
-                    color="primary.main"
+                    style={{ color: "#2E63F7" }}
                   >
                     {author}
                   </Typography>
@@ -43,7 +43,7 @@ function Book({ book }) {
                 whiteSpace="nowrap"
                 textOverflow="ellipses"
                 sx={{ fontSize: 8 }}
-                color="text.secondary"
+                style={{ color: "#2E63F7" }}
               >
                 {book.authors[0]}
               </Typography>

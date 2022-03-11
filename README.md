@@ -13,3 +13,17 @@ Install dependencies
 Run app
 
 > `yarn start`
+
+#### App gifs
+
+##### Login/Home/Logout
+
+![g](images/CPT2203100931-1149x740.gif)
+
+##### Responsiveness and Description Book
+
+![g](images/CPT2203100920-360x640.gif)
+
+![g](images/CPT2203100938-1149x740.gif)
+
+![g](images/CPT2203100941-1149x740.gif)

@@ -1,0 +1,45 @@
+{
+  "data": {
+    "authors": ["Gúbio Pereira"],
+    "title": "Aut eum dolore",
+    "description": "Aut enim voluptas quaerat quo molestias. Ea et minus sint non ut dolor. Quasi fuga non qui sequi vero accusantium delectus fugit quis. Placeat culpa atque aut sed pariatur. Sapiente molestias maxime ab porro.\n \rSed quaerat consequatur blanditiis. Quae tempora esse nihil placeat necessitatibus fuga illum. Repudiandae qui temporibus illum occaecati omnis vitae explicabo qui odio. Nihil sunt inventore perferendis hic dolores autem repellendus repellendus. Libero modi deleniti maiores aspernatur quae.",
+    "pageCount": 1581,
+    "category": "Biografias",
+    "imageUrl": "https://d2drtqy2ezsot0.cloudfront.net/appnoz/Book-7.jpg",
+    "language": "Inglês",
+    "isbn10": "5254993049",
+    "isbn13": "826-5254993049",
+    "publisher": "Moraes, Nogueira and Barros",
+    "published": 2017,
+    "id": "61c9c5246189745dcd504e65"
+  },
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-length": "846",
+    "content-type": "application/json; charset=utf-8"
+  },
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [null],
+    "transformResponse": [null],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY3NzQ5MzQxNDIsImlhdCI6MTY0Njc3ODUzNDE0Mn0.p6EGqGk91G5zqttPOZ-i5Vz9SqnVHfHYWqgwHe9tffU"
+    },
+    "baseURL": "http://books.appnoz.com.br/api/v1",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY3NzQ5MzQxNDIsImlhdCI6MTY0Njc4OTMzNDE0Mn0.rWTo66uCNkbGGy6JyznZYR5lWsQWOVAvFw1H_QxalhM",
+    "method": "get",
+    "url": "books/61c9c5246189745dcd504e65"
+  },
+  "request": {}
+}

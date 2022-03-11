@@ -1,0 +1,40 @@
+{
+  "data": {
+    "name": "Núbia Barros",
+    "email": "desafio@appnoz.com.br",
+    "birthdate": "2021-06-09",
+    "gender": "M",
+    "id": "61c9c5256189745dcd50500a"
+  },
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA0MzUsImlhdCI6MTY0NjY4NTY0MDQzNX0.ptHtqcP_psRcwGEHfcSDQxHqJX7UZYHvE0Jj9sovbKA",
+    "content-length": "126",
+    "content-type": "application/json; charset=utf-8",
+    "refresh-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA0MzUsImlhdCI6MTY0NjY5NjQ0MDQzNX0.HWSVltYGcsYtG0eP73AuHFIEFzdkcKgFZ1RapiBPXsM"
+  },
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [null],
+    "transformResponse": [null],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json"
+    },
+    "baseURL": "http://books.appnoz.com.br/api/v1",
+    "method": "post",
+    "url": "auth/sign-in",
+    "data": "{\"email\":\"desafio@appnoz.com.br\",\"password\":\"12341234\"}"
+  },
+  "request": {}
+}

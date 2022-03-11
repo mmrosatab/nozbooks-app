@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import bgi from "../../assets/images/background_home.svg";
+import { Box } from "@mui/material";
+import { styled as styledMui } from "@mui/system";
 
 const Container = styled.div`
   height: 100vh;
@@ -15,7 +17,10 @@ const HomeContainer = styled.div`
   color: #ffffff;
   display: flex;
   flex-direction: column;
-
+  font-size: 12px;
+  span {
+    font-weight: bold;
+  }
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
     margin-top: 2%;
@@ -117,4 +122,23 @@ const Main = styled.main`
   }
 `;
 
-export { Container, HomeContainer, Header, Footer, Main };
+const CustomBox = styledMui(Box)({
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  backgroundColor: "white",
+  boxShadow: 24,
+  borderRadius: 4,
+  p: 4,
+  [`@media (min-width: 768px)`]: {
+    width: "60vw",
+    height: "80vh",
+  },
+  [`@media (max-width: 767px)`]: {
+    width: "90vw",
+    height: "90vh",
+  },
+});
+
+export { Container, HomeContainer, Header, Footer, Main, CustomBox };

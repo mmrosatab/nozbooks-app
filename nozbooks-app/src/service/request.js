@@ -39,7 +39,7 @@ export async function booksRequest() {
 
   try {
     const request = await api.get(URL_BOOKS, {
-      refreshToken: refreshToken,
+      refreshToken,
       params: { page: "1", amount: "28", category: "biographies" },
       headers: {
         Authorization: authorization,
@@ -56,15 +56,12 @@ export async function booksByIdRequest(id) {
   const authorization = getAuthorizationLocalStorage();
 
   try {
-    const request = await api.get(
-      `books/${id}`,
-      { refreshToken },
-      {
-        headers: {
-          Authorization: authorization,
-        },
-      }
-    );
+    const request = await api.get(`${URL_BOOKS}/${id}`, {
+      refreshToken,
+      headers: {
+        Authorization: authorization,
+      },
+    });
     return request;
   } catch (error) {
     return null;

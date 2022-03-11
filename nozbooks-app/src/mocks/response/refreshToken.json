@@ -1,0 +1,33 @@
+{
+  "data": "",
+  "status": 204,
+  "statusText": "No Content",
+  "headers": {
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA3NTAsImlhdCI6MTY0NjY4NTY0MDc1MH0.jnBEWkFLpDlrQctxMr3N4qsf_L8WkklNIs2mc2G2zog",
+    "refresh-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA3NTAsImlhdCI6MTY0NjY5NjQ0MDc1MH0.UFPKX5UjQ3carPiQAFZXbm7e8Wz1JmZjymzTyjw9_AI"
+  },
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [null],
+    "transformResponse": [null],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA0MzUsImlhdCI6MTY0NjY4NTY0MDQzNX0.ptHtqcP_psRcwGEHfcSDQxHqJX7UZYHvE0Jj9sovbKA"
+    },
+    "baseURL": "http://books.appnoz.com.br/api/v1",
+    "method": "post",
+    "url": "auth/refresh-token",
+    "data": "{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM5YzUyNTYxODk3NDVkY2Q1MDUwMGEiLCJ2bGQiOjE2NDY2ODIwNDA0MzUsImlhdCI6MTY0NjY5NjQ0MDQzNX0.HWSVltYGcsYtG0eP73AuHFIEFzdkcKgFZ1RapiBPXsM\"}"
+  },
+  "request": {}
+}

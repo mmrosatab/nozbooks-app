@@ -51,7 +51,7 @@ function Home() {
     const lastPageIndex = firstPageIndex + PAGE_SIZE;
     const table = books.slice(firstPageIndex, lastPageIndex);
     setCurrentTable(table);
-  }, [currentPage]);
+  }, [currentPage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleClickLogout() {
     auth.logout();

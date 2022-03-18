@@ -13,6 +13,12 @@ const Container = styled.div`
 const LoginContainer = styled.div`
   color: #ffffff;
 
+  #title-div {
+    font-size: 1.75rem;
+    line-height: 40px;
+    font-weight: 300;
+  }
+
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
     margin: 10% 0 0 8%;
@@ -27,7 +33,6 @@ const LoginContainer = styled.div`
       display: flex;
       justify-content: flex-start;
       margin-bottom: 8%;
-      font-size: 30px;
       div {
         padding-right: 2%;
       }
@@ -45,7 +50,6 @@ const LoginContainer = styled.div`
       display: flex;
       justify-content: flex-start;
       margin-bottom: 16%;
-      font-size: 30px;
       div {
         padding-right: 2%;
       }

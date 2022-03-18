@@ -60,6 +60,7 @@ function Home() {
 
   async function getBooks() {
     const response = await booksRequest();
+    console.log(response);
     if (response !== null) {
       const { data } = response;
       const { totalItems } = data;
@@ -121,20 +122,18 @@ function Home() {
             <div id="img-logo-noz">
               <img src={logo} alt="logo" />
             </div>
-            <div id="books-title">Books</div>
+            <div id="books-title">
+              <span>Books</span>
+            </div>
           </div>
           <div id="title-header-user">
             <div id="title-welcome">
               Bem vinda, <span>{username}</span>
             </div>
-            <div>
-              <Button
-                style={{ backgroundColor: "transparent" }}
-                type="submit"
-                onClick={handleClickLogout}
-              >
+            <div id="title-logout-btn">
+              <button onClick={handleClickLogout}>
                 <img src={iconLogout} alt="logo" />
-              </Button>
+              </button>
             </div>
           </div>
         </Header>
@@ -169,23 +168,16 @@ function Home() {
             <div>
               Página <span>{currentPage}</span> de <span>{totalPages}</span>
             </div>
-            <div>
-              <Button
-                style={{ backgroundColor: "transparent" }}
-                type="submit"
-                onClick={handlePreviousPage}
-              >
+            <div className="itens-footer-btn">
+              <button onClick={handlePreviousPage}>
                 <img src={iconBefore} alt="before" />
-              </Button>
+              </button>
             </div>
-            <div>
-              <Button
-                style={{ backgroundColor: "transparent" }}
-                type="submit"
-                onClick={handleNextPage}
-              >
+
+            <div className="itens-footer-btn">
+              <button onClick={handleNextPage}>
                 <img src={iconAfter} alt="after" />
-              </Button>
+              </button>
             </div>
           </div>
         </Footer>

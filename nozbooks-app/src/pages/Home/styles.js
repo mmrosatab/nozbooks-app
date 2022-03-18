@@ -14,13 +14,9 @@ const Container = styled.div`
 `;
 
 const HomeContainer = styled.div`
-  color: #ffffff;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
-  span {
-    font-weight: bold;
-  }
+
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
     margin-top: 2%;
@@ -52,13 +48,33 @@ const Header = styled.header`
   }
 
   #books-title {
-    margin-left: 8%;
-    font-size: 22px;
+    margin-left: 10%;
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 40px;
   }
 
   #title-header-user {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+
+    font-size: 0.75rem;
+    width: 28%;
+    height: 100%;
+
+    span {
+      font-weight: 500;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+    }
+
+    #title-logout-btn {
+      padding-left: 4%;
+    }
   }
 
   /* Desktop properties*/
@@ -73,30 +89,59 @@ const Header = styled.header`
     #title-welcome {
       display: none;
     }
+
+    #books-title {
+      margin-left: 18%;
+    }
   }
 `;
 
 const Footer = styled.footer`
   color: #333333;
   height: 8%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 20px;
+
+  span {
+    font-weight: 500;
+  }
+
+  #itens-footer {
+    display: flex;
+    align-items: center;
+
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
+    padding: 1% 4% 1% 4%;
+    justify-content: flex-end;
+
     #itens-footer {
-      display: flex;
+      width: 28%;
       justify-content: flex-end;
-      align-items: center;
-      margin: 2% 4% 0% 0%;
+
+      .itens-footer-btn {
+        padding-left: 4%;
+      }
     }
   }
 
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
+    justify-content: center;
+
     #itens-footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2%;
+      width: 60%;
+      justify-content: space-around;
     }
 
     #itens-footer :nth-child(1) {
@@ -112,15 +157,15 @@ const Footer = styled.footer`
 `;
 
 const Main = styled.main`
+  height: 84%;
+
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
-    height: 84%;
     padding: 4% 4% 0% 4%;
   }
 
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
-    height: 84%;
     padding: 4%;
     overflow-y: auto;
   }

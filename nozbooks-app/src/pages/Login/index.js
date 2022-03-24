@@ -9,7 +9,8 @@ import {
   Tooltip,
   ClickAwayListener,
 } from "@mui/material";
-import logo from "../../assets/logos/white_noz.svg";
+
+import { whiteLogo } from "../../constants/images.js";
 
 function initialState() {
   return { email: "", password: "" };
@@ -67,7 +68,7 @@ function Login() {
       <LoginContainer>
         <div id="title-div">
           <div>
-            <img src={logo} alt="logo" />
+            <img src={whiteLogo} alt="logo" />
           </div>
           <div>Books</div>
         </div>

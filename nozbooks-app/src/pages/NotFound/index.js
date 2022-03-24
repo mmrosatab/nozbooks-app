@@ -1,12 +1,12 @@
 import React from "react";
 import Container from "./styles.js";
-import logo from "../../assets/logos/black_noz.svg";
+import { blackLogo } from "../../constants/images.js";
 
 function NotFound() {
   return (
     <Container>
       <div>
-        <img src={logo} alt="logo" />
+        <img src={blackLogo} alt="logo" />
       </div>
       <div>
         <h1>Página não encontrada</h1>

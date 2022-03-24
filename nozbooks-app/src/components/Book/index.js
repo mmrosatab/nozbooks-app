@@ -1,12 +1,16 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import Container from "./styles.js";
+import imagePlaceholder from "../../assets/images/image_placeholder.png";
 
 function Book({ book }) {
+  const image = book.imageUrl == null ? imagePlaceholder : book.imageUrl;
+  const { title, authors, pageCount, publisher, published } = book;
+
   return (
     <Container>
       <div className="image-book">
-        <img src={book.imageUrl} alt="book" />
+        <img src={image} alt="book" />
       </div>
       <div className="infos">
         <div className="info-title-authors">
@@ -18,12 +22,12 @@ function Book({ book }) {
               sx={{ fontSize: 10 }}
               color="text.primary"
             >
-              {book.title}
+              {title}
             </Typography>
           </div>
           <div>
-            {book.authors.length > 1 ? (
-              book.authors.map((author, index) => {
+            {authors.length > 1 ? (
+              authors.map((author, index) => {
                 return (
                   <Typography
                     key={index}
@@ -45,7 +49,7 @@ function Book({ book }) {
                 sx={{ fontSize: 8 }}
                 style={{ color: "#2E63F7" }}
               >
-                {book.authors[0]}
+                {authors[0]}
               </Typography>
             )}
           </div>
@@ -60,7 +64,7 @@ function Book({ book }) {
               sx={{ fontSize: 10 }}
               color="text.secondary"
             >
-              {`${book.pageCount} páginas`}
+              {`${pageCount} páginas`}
             </Typography>
           </div>
           <div>
@@ -71,7 +75,7 @@ function Book({ book }) {
               sx={{ fontSize: 10 }}
               color="text.secondary"
             >
-              {book.publisher}
+              {publisher}
             </Typography>
           </div>
           <div>
@@ -82,7 +86,7 @@ function Book({ book }) {
               sx={{ fontSize: 10 }}
               color="text.secondary"
             >
-              {book.published}
+              {published}
             </Typography>
           </div>
         </div>

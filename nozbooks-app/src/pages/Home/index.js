@@ -14,7 +14,6 @@ import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
 import Book from "../../components/Book";
 import BookDescription from "../../components/BookDescription";
 import {
-  Button,
   Box,
   Grid,
   Card,
@@ -23,11 +22,14 @@ import {
   Modal,
 } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import logo from "../../assets/logos/black_noz.svg";
-import iconLogout from "../../assets/images/logout_circle.png";
-import iconBefore from "../../assets/images/before_circle.png";
-import iconAfter from "../../assets/images/after_circle.png";
-import iconHand from "../../assets/images/hand.png";
+import {
+  blackLogo,
+  logoutIcon,
+  beforeIcon,
+  afterIcon,
+  handIcon,
+} from "../../constants/images.js";
+
 const PAGE_SIZE = 12;
 
 function Home() {
@@ -120,7 +122,7 @@ function Home() {
         <Header>
           <div id="title-header-logo">
             <div id="img-logo-noz">
-              <img src={logo} alt="logo" />
+              <img src={blackLogo} alt="logo" />
             </div>
             <div id="books-title">
               <span>Books</span>
@@ -132,7 +134,7 @@ function Home() {
             </div>
             <div id="title-logout-btn">
               <button onClick={handleClickLogout}>
-                <img src={iconLogout} alt="logo" />
+                <img src={logoutIcon} alt="logo" />
               </button>
             </div>
           </div>
@@ -159,6 +161,7 @@ function Home() {
               })}
             </Grid>
           </Box>
+
           <Modal open={openModal} onClose={handleClose}>
             <CustomBox>{DisplayData()}</CustomBox>
           </Modal>
@@ -170,13 +173,13 @@ function Home() {
             </div>
             <div className="itens-footer-btn">
               <button onClick={handlePreviousPage}>
-                <img src={iconBefore} alt="before" />
+                <img src={beforeIcon} alt="before" />
               </button>
             </div>
 
             <div className="itens-footer-btn">
               <button onClick={handleNextPage}>
-                <img src={iconAfter} alt="after" />
+                <img src={afterIcon} alt="after" />
               </button>
             </div>
           </div>
@@ -187,7 +190,7 @@ function Home() {
 }
 
 const styleCardContent = {
-  cursor: `url(${iconHand}), auto`,
+  cursor: `url(${handIcon}), auto`,
 };
 
 export default Home;

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import bgi from "../../assets/images/background_login.svg";
+import { loginBackground } from "../../constants/images.js";
 
 const Container = styled.div`
   height: 100vh;
-  background: url("${bgi}") center center;
+  background: url("${loginBackground}") center center;
   background-size: cover;
   display: flex;
   flex-direction: column;

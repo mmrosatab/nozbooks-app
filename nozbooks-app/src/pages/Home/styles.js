@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import bgi from "../../assets/images/background_home.svg";
 import { Box } from "@mui/material";
 import { styled as styledMui } from "@mui/system";
+import { handIcon, homeBackground } from "../../constants/images.js";
 
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  background: url("${bgi}") center center;
+  background: url("${homeBackground}") center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,12 @@ const HomeContainer = styled.div`
     margin-top: 4%;
     width: 90%;
     height: 100%;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: url("${handIcon}"), auto;
   }
 `;
 
@@ -65,11 +71,6 @@ const Header = styled.header`
 
     span {
       font-weight: 500;
-    }
-
-    button {
-      border: none;
-      background-color: transparent;
     }
 
     #title-logout-btn {
@@ -113,11 +114,6 @@ const Footer = styled.footer`
   #itens-footer {
     display: flex;
     align-items: center;
-
-    button {
-      border: none;
-      background-color: transparent;
-    }
   }
 
   /* Desktop properties*/
@@ -158,15 +154,16 @@ const Footer = styled.footer`
 
 const Main = styled.main`
   height: 84%;
+  width: 100%;
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
-    padding: 4% 4% 0% 4%;
+    padding: 2% 4% 0% 4%;
   }
 
   /* Mobile properties*/
   @media screen and (max-width: 767px) {
-    padding: 4%;
+    padding: 6% 0% 0% 0%;
     overflow-y: auto;
   }
 `;

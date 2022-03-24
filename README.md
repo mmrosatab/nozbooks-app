@@ -27,3 +27,16 @@ Run app
 ![g](images/CPT2203100938-1149x740.gif)
 
 ![g](images/CPT2203100941-1149x740.gif)
+
+##### Todo List
+
+- [x] - Login Page
+  - [x] - Responsiveness
+- [x] - OAuth2 authentication
+- [x] - Home Page
+  - [x] - Responsiveness
+- [x] - Book Grid
+  - [ ] - Responsiveness
+- [x] - Book Description
+  - [ ] - Responsiveness
+- [ ] - Tests

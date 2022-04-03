@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./styles.js";
-import { blackLogo } from "../../constants/images.js";
+import { blackLogo } from "../../constants/images";
 
 function NotFound() {
   return (

@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { booksRequest, booksByIdRequest } from "../../service/request";
-import {
-  Container,
-  HomeContainer,
-  Header,
-  Main,
-  Footer,
-  CustomBox,
-} from "./styles";
+import { Container, HomeContainer, Header, Main, Footer } from "./styles";
 import { useAuth } from "../../context/AuthContext";
 import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
-import Book from "../../components/Book";
-import BookDescription from "../../components/BookDescription";
-import {
-  Box,
-  Grid,
-  Card,
-  CardContent,
-  CardActionArea,
-  Modal,
-} from "@mui/material";
+import BookCard from "../../components/BookCard";
+import BookDescriptionModal from "../../components/BookDescriptionModal";
+import { Box, Grid } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
   blackLogo,
   logoutIcon,
   beforeIcon,
   afterIcon,
-  handIcon,
-} from "../../constants/images.js";
+} from "../../constants/images";
 
 const PAGE_SIZE = 12;
 
@@ -62,7 +47,6 @@ function Home() {
 
   async function getBooks() {
     const response = await booksRequest();
-    console.log(response);
     if (response !== null) {
       const { data } = response;
       const { totalItems } = data;
@@ -111,7 +95,13 @@ function Home() {
 
   function DisplayData() {
     if (currentBook !== null) {
-      return <BookDescription book={currentBook} />;
+      return (
+        <BookDescriptionModal
+          book={currentBook}
+          openModal={openModal}
+          handleClose={handleClose}
+        />
+      );
     }
     return <></>;
   }
@@ -145,26 +135,16 @@ function Home() {
               {currentTable.map((book, index) => {
                 return (
                   <Grid key={index} item xs={sxGrid}>
-                    <Card key={book.id}>
-                      <CardActionArea
-                        style={styleCardContent}
-                        component="a"
-                        onClick={() => handleClickModal(book.id)}
-                      >
-                        <CardContent>
-                          <Book book={book} />
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
+                    <BookCard
+                      book={book}
+                      handleClickModal={() => handleClickModal(book.id)}
+                    />
                   </Grid>
                 );
               })}
             </Grid>
           </Box>
-
-          <Modal open={openModal} onClose={handleClose}>
-            <CustomBox>{DisplayData()}</CustomBox>
-          </Modal>
+          {DisplayData()}
         </Main>
         <Footer>
           <div id="itens-footer">
@@ -188,9 +168,5 @@ function Home() {
     </Container>
   );
 }
-
-const styleCardContent = {
-  cursor: `url(${handIcon}), auto`,
-};
 
 export default Home;

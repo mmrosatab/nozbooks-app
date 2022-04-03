@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { Box } from "@mui/material";
-import { styled as styledMui } from "@mui/system";
-import { handIcon, homeBackground } from "../../constants/images.js";
+import { handIcon, homeBackground } from "../../constants/images";
 
 const Container = styled.div`
   height: 100vh;
@@ -168,23 +166,4 @@ const Main = styled.main`
   }
 `;
 
-const CustomBox = styledMui(Box)({
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  backgroundColor: "white",
-  boxShadow: 24,
-  borderRadius: 4,
-  p: 4,
-  [`@media (min-width: 768px)`]: {
-    width: "60vw",
-    height: "80vh",
-  },
-  [`@media (max-width: 767px)`]: {
-    width: "90vw",
-    height: "90vh",
-  },
-});
-
-export { Container, HomeContainer, Header, Footer, Main, CustomBox };
+export { Container, HomeContainer, Header, Footer, Main };

@@ -10,7 +10,7 @@ import {
   ClickAwayListener,
 } from "@mui/material";
 
-import { whiteLogo } from "../../constants/images.js";
+import { whiteLogo } from "../../constants/images";
 
 function initialState() {
   return { email: "", password: "" };

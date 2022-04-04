@@ -156,7 +156,6 @@ function Home() {
                 <img src={beforeIcon} alt="before" />
               </button>
             </div>
-
             <div className="itens-footer-btn">
               <button onClick={handleNextPage}>
                 <img src={afterIcon} alt="after" />

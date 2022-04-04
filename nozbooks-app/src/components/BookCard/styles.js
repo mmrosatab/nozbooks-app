@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  height: 100px;
+  height: 80px;
 
   .image-book img {
     max-height: 100%;

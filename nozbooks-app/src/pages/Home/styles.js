@@ -151,12 +151,13 @@ const Footer = styled.footer`
 `;
 
 const Main = styled.main`
-  height: 84%;
+  height: 80%;
   width: 100%;
 
   /* Desktop properties*/
   @media screen and (min-width: 768px) {
     padding: 2% 4% 0% 4%;
+    overflow-y: hidden;
   }
 
   /* Mobile properties*/

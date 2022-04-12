@@ -5,16 +5,16 @@ import { Card, CardContent, CardActionArea } from "@mui/material";
 import { handIcon } from "../../constants/images";
 
 function BookCard({ book, handleClickModal }) {
-  const image = book.imageUrl == null ? imagePlaceholder : book.imageUrl;
+  const image = book.imageUrl === null ? imagePlaceholder : book.imageUrl;
   const { title, authors, pageCount, publisher, published } = book;
 
   return (
-    <Card key={book.id}>
+    <Card key={book.id} sx={{ height: "100%" }}>
       <CardActionArea
         style={styleCardContent}
         onClick={() => handleClickModal(book.id)}
       >
-        <CardContent>
+        <CardContent sx={{ height: "100%" }}>
           <Container>
             <div className="image-book">
               <img src={image} alt="book" />
@@ -62,4 +62,5 @@ export default BookCard;
 
 const styleCardContent = {
   cursor: `url(${handIcon}), auto`,
+  height: "100%",
 };

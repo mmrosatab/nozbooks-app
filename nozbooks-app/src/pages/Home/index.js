@@ -6,8 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import { getUsernameLocalStorage } from "../../context/LocalStoreProvider";
 import BookCard from "../../components/BookCard";
 import BookDescriptionModal from "../../components/BookDescriptionModal";
-import { Box, Grid } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Grid } from "@mui/material";
 import {
   blackLogo,
   logoutIcon,
@@ -27,7 +26,6 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const [currentBook, setCurrentBook] = useState(null);
-  const sxGrid = useMediaQuery("(min-width:768px)") ? 3 : 12;
 
   useEffect(() => {
     getBooks();
@@ -130,20 +128,28 @@ function Home() {
           </div>
         </Header>
         <Main>
-          <Box sx={{ height: "68vh" }}>
-            <Grid container spacing={2}>
-              {currentTable.map((book, index) => {
-                return (
-                  <Grid key={index} item xs={sxGrid}>
-                    <BookCard
-                      book={book}
-                      handleClickModal={() => handleClickModal(book.id)}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
-          </Box>
+          <Grid container spacing={2} sx={{ height: "100%" }}>
+            {currentTable.map((book, index) => {
+              return (
+                <Grid
+                  key={index}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  sx={{ height: "33%" }}
+                >
+                  <BookCard
+                    book={book}
+                    handleClickModal={() => handleClickModal(book.id)}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
+
           {DisplayData()}
         </Main>
         <Footer>

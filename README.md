@@ -14,6 +14,10 @@ Run app
 
 > `yarn start`
 
+#### How to test this application locally?
+
+> `yarn test`
+
 #### App gifs
 
 ##### Login/Home/Logout
@@ -28,6 +32,8 @@ Run app
 
 ![g](nozbooks-app/src/assets/images/CPT2203100941-1149x740.gif)
 
+![g](nozbooks-app/src/assets/images/CPT2204112248-1149x740.gif)
+
 ##### Todo List
 
 - [x] - Login Page
@@ -36,7 +42,7 @@ Run app
 - [x] - Home Page
   - [x] - Responsiveness
 - [x] - Book Grid
-  - [ ] - Responsiveness
+  - [x] - Responsiveness
 - [x] - Book Description
-  - [ ] - Responsiveness
+  - [x] - Responsiveness
 - [ ] - Tests

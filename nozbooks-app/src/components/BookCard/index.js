@@ -9,8 +9,9 @@ function BookCard({ book, handleClickModal }) {
   const { title, authors, pageCount, publisher, published } = book;
 
   return (
-    <Card key={book.id} sx={{ height: "100%" }}>
+    <Card data-testid="card-testid" key={book.id} sx={{ height: "100%" }}>
       <CardActionArea
+        data-testid="card-area-testid"
         style={styleCardContent}
         onClick={() => handleClickModal(book.id)}
       >

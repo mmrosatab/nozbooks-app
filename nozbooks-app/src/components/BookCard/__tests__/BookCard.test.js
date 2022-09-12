@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import BookCard from "../components/BookCard";
+import BookCard from "..";
 
 const bookMock = {
   authors: ["Júlio César Carvalho", "Márcia Xavier", "Ígor Carvalho"],
@@ -19,18 +19,27 @@ const bookMock = {
   id: "61c9c5246189745dcd504e2d",
 };
 
+const handleClickModal = jest.fn();
+
+const renderComponent = () => {
+  return render(<BookCard book={bookMock} handleClickModal={handleClickModal} />);
+};
+
 describe("BookCard Tests", () => {
+  test("Should render correctly", () => {
+    const { asFragment } = renderComponent();
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   test("Check BookCard is visible", () => {
-    const handleClickModal = jest.fn();
-    render(<BookCard book={bookMock} handleClickModal={handleClickModal} />);
+    renderComponent();
     const bookCard = screen.getByTestId("card-testid");
     expect(bookCard).toBeVisible();
     expect(bookCard).toBeInTheDocument();
   });
 
   test("Check handleClickModal is called after click on modal", () => {
-    const handleClickModal = jest.fn();
-    render(<BookCard book={bookMock} handleClickModal={handleClickModal} />);
+    renderComponent();
     const bookCard = screen.getByTestId("card-area-testid");
     fireEvent.click(bookCard);
     expect(handleClickModal).toHaveBeenCalledTimes(1);

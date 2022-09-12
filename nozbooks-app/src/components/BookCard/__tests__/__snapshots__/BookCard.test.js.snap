@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCard Tests Should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-zwt9xa-MuiPaper-root-MuiCard-root"
+    data-testid="card-testid"
+  >
+    <button
+      class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+      data-testid="card-area-testid"
+      style="cursor: url(hand.png), auto; height: 100%;"
+      tabindex="0"
+      type="button"
+    >
+      <div
+        class="MuiCardContent-root css-16d4f6n-MuiCardContent-root"
+      >
+        <div
+          class="sc-bdvvtL bukMTk"
+        >
+          <div
+            class="image-book"
+          >
+            <img
+              alt="book"
+              src="https://d2drtqy2ezsot0.cloudfront.net/appnoz/Book-8.jpg"
+            />
+          </div>
+          <div
+            class="infos"
+          >
+            <div
+              class="info-title-authors"
+            >
+              <div>
+                <p
+                  class="p-title"
+                >
+                  Aliquam et
+                </p>
+              </div>
+              <div>
+                <p
+                  class="p-authors"
+                >
+                  Júlio César Carvalho
+                </p>
+                <p
+                  class="p-authors"
+                >
+                  Márcia Xavier
+                </p>
+                <p
+                  class="p-authors"
+                >
+                  Ígor Carvalho
+                </p>
+              </div>
+            </div>
+            <div
+              class="info-book"
+            >
+              <div>
+                <p
+                  class="p-page-count"
+                >
+                  947 páginas
+                </p>
+              </div>
+              <div>
+                <p
+                  class="p-publisher"
+                >
+                  Albuquerque S.A.
+                </p>
+              </div>
+              <div>
+                <p
+                  class="p-published"
+                >
+                  Publicado em 2021 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+      />
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

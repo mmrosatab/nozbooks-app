@@ -3,9 +3,9 @@ import {
   getRefreshTokenLocalStorage,
   getAuthorizationLocalStorage,
 } from "../context/LocalStoreProvider";
-const URL_SIGN_IN = "auth/sign-in";
-const URL_REFRESH_TOKEN = "auth/refresh-token";
-const URL_BOOKS = "books";
+const URL_SIGN_IN = "/auth/sign-in";
+const URL_REFRESH_TOKEN = "/auth/refresh-token";
+const URL_BOOKS = "/books";
 
 export async function signInRequest(values) {
   try {

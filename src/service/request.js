@@ -9,15 +9,7 @@ const URL_BOOKS = "/books";
 
 export async function signInRequest(values) {
   try {
-    const request = await api.post
-    (
-      URL_SIGN_IN, 
-      values, 
-      {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      }
-    );
+    const request = await api.post(URL_SIGN_IN, values);
     return request;
   } catch (error) {
     return null;

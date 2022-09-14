@@ -2,7 +2,7 @@
 
 NOZBooks application with ReactJS
 
-You can use this application here: https://nozb-ooks.vercel.app/
+You can use this application here: https://nozbooks-app.vercel.app/
 
 #### How to use this application locally?
 
@@ -26,13 +26,13 @@ Run app
 
 ##### Responsiveness and Description Book
 
-![g](nozbooks-app/src/assets/images/CPT2203100920-360x640.gif)
+![g](src/assets/images/CPT2203100920-360x640.gif)
 
-![g](nozbooks-app/src/assets/images/CPT2203100938-1149x740.gif)
+![g](src/assets/images/CPT2203100938-1149x740.gif)
 
-![g](nozbooks-app/src/assets/images/CPT2203100941-1149x740.gif)
+![g](src/assets/images/CPT2203100941-1149x740.gif)
 
-![g](nozbooks-app/src/assets/images/CPT2204112248-1149x740.gif)
+![g](src/assets/images/CPT2204112248-1149x740.gif)
 
 ##### Todo List
 

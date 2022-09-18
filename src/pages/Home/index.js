@@ -78,12 +78,8 @@ function Home() {
     if (response !== null) {
       const { data } = response;
       setCurrentBook(data);
-      handleOpen(true);
+      setOpenModal(true);
     }
-  }
-
-  function handleOpen() {
-    setOpenModal(true);
   }
 
   function handleClose() {
